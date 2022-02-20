@@ -1,0 +1,25 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <br>
+      <br><h1>Employees <font color="#C70039">(protected)</font> (list of {{emp.length}})</h1>
+      <h4>Fetched from the <mark class='red'>/employees</mark> resource</h4>
+      <table class="table table-hover" id="data">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>City</th>
+            <th>Hire Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of emp" (click)="select(e)">
+                <td>{{e.FirstName}} {{e.LastName}}</td>
+                <td>{{e.AddressCity}}</td>
+                <td>{{e.HireDate | date: 'yyyy-MM-dd'}}</td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,25 @@
+<main role="main" class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <br>
+        <br><h1>Employees (list of 300)</h1>
+        <p>Click a row to view the employee details</p>
+        <table class="table table-hover" id="data">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>City</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let e of emp" (click)="select(e)">
+                  <td>{{e.FirstName}}</td>
+                  <td>{{e.LastName}}</td>
+                  <td>{{e.AddressCity}}</td>
+                </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>

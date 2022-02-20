@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Kevin Chan">
+  <title>KO - Local data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../main.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+  <script src="../main.js"></script>
+  <script src="../js/localko.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="../index.html">Assignment 1</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="local.html">Local data</a>
+                <a class="nav-item nav-link" href="fetched.html">Fetched data</a>
+                <a class="nav-item nav-link active" href="localko.html">KO - Local data</a>
+                <a class="nav-item nav-link" href="fetchedko.html">KO - Fetched data</a>
+            </div>
+        </div>
+    </nav>
+
+   
+    <main role="main" class="container">
+
+    <!-- Data for the List of customers -->
+        <div class="row">
+            <div class="col-md-9">
+                <p>
+                    Work with Knockout using local data
+                </p>
+                <div class="card">
+                    <div class="card-header">Customer List</div>
+                        <div class="card-body">
+                           <table class="table table-sm table-hover" id="data">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Birth date</th>
+                                        <th>Addresses</th>
+                                        <th>Credits</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: data">
+                                    <tr>
+                                        <td data-bind="text: lastFirstName(first_name, last_name)"></td>
+                                        <td data-bind='text: moment(birthdate).format("YYYY-MM-DD")'></td>
+                                        <td>
+                                            City:
+                                            <span data-bind="text: city"></span>
+                                            <br> Email:
+                                            <span data-bind="text: email"></span>
+                                            <br>
+                                            <a data-bind="attr: { href: website}">Website</a>
+                                        </td>
+                                        <td data-bind="text: credits">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2018 Kevin Chan. This is my own work, and I have practiced academic honesty.</p>
+    </footer>
+    
+
+</body>
+
+</html>

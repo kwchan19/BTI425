@@ -1,0 +1,40 @@
+<div class="row">
+  <h1>Login</h1>
+  <h4>Enter information, and click the login button</h4>
+  <div class='col-md-8 col-sm-12'>
+
+    <form (ngSubmit)='onSubmit()' #f='ngForm'>
+
+      <div class="form-group">
+        <label class="control-label" for="userName">User name:</label>
+        <input class="form-control" [(ngModel)]='credentials.userName' id="userName" name="userName" #userName='ngModel' required pattern='.{6,}' maxlength="50"
+          autofocus placeholder="6 to 50 characters">
+        <div *ngIf='userName.invalid && (userName.dirty || userName.touched)' class='alert alert-danger'>
+          <div *ngIf='userName.errors.required'>User name is required, 6 to 50 characters</div>
+          <div *ngIf='userName.errors.pattern'>User name must be at least 6 characters</div>
+        </div>
+        <!-- <div>{{ credentials.userName }}</div> -->
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="password">Password:</label>
+        <input type="password" class="form-control" [(ngModel)]='credentials.password' id="password" name="password" #password='ngModel' required pattern='.{6,}' maxlength="50"
+          placeholder="6 to 50 characters">
+        <div *ngIf='password.invalid && (password.dirty || password.touched)' class='alert alert-danger'>
+          <div *ngIf='password.errors.required'>Password is required, 6 to 50 characters</div>
+          <div *ngIf='password.errors.pattern'>Password must be at least 6 characters</div>
+        </div>
+        <!-- <div>{{ credentials.password }}</div> -->
+      </div>
+
+      <a class="btn btn-default" routerLink='/home'>Back to home</a>
+      <!-- <button class="btn btn-default" (click)='logout()'>Logout</button> -->
+      <button class="btn btn-primary" type="submit" [disabled]='!f.form.valid'>Login</button>&nbsp;&nbsp;
+      <span *ngIf='loginError.length>0' class="text-danger">{{ loginError }}</span>
+    </form>
+
+  </div>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

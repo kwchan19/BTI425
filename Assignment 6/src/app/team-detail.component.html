@@ -1,0 +1,16 @@
+<div class="row">
+  <h1>Team detail - {{ t.TeamName }}</h1>
+  <h4>View this team</h4>
+  <dl class="dl-horizontal">
+    <dt>Team name</dt>
+    <dd>{{ t.TeamName }}</dd>
+    <dt>Name of team leader</dt>
+    <dd>{{ t.TeamLead.FirstName }} {{ t.TeamLead.LastName }}</dd>
+    <dt>Projects ({{ t.Projects.length }})</dt>
+    <dd><span *ngFor='let p of t.Projects'>{{ p.ProjectName }}<br></span></dd>
+    <dt>Team members ({{ t.Employees.length }})</dt>
+    <dd><span *ngFor='let e of t.Employees'>{{ e.FirstName }} {{ e.LastName }}<br></span></dd>
+  </dl>
+  <button class="btn btn-default" (click)='back()'>Back to list</button>
+  <button class="btn btn-warning" (click)='edit(t._id)'>Edit team</button>
+</div>

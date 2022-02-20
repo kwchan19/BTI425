@@ -1,0 +1,20 @@
+<div class="row">
+  <br><br>
+  <h1>Team detail - {{t.TeamName}}</h1>
+  <h4>View this team</h4>
+  <dl class="dl-horizontal">
+    <dt>Team Name</dt>
+    <dd>{{t.TeamName}}</dd>
+    <dt>Name of Team Leader</dt>
+    <dd>{{t.TeamLead.FirstName}} {{t.TeamLead.LastName}}</dd>
+    <dt>Projects ({{t.Projects.length}}) </dt>
+    <dd *ngFor= 'let p of t.Projects'>{{p.ProjectName}}</dd>
+    <dt>Team Members ({{t.Employees.length}})</dt>
+    <dd *ngFor= 'let x of t.Employees'>{{x.FirstName}} {{x.LastName}}</dd>
+  </dl>
+  <button class="btn btn-default" (click)='this.router.navigate(["/teamsList"])'>Back to list</button>
+  <button class="btn btn-primary" (click)="goToDetails(t._id)">Edit details</button>
+  <!--<button class="btn btn-primary" (click)='this.router.navigate(["/customeredit",c.id])'>Edit Customer</button>
+  <button class="btn btn-warning" (click)='delete()'>Delete Customer</button>-->
+</div>
+

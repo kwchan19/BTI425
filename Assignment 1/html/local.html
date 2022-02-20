@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Kevin Chan">
+    <meta name="description" content="Description of this work">
+     <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <!-- Additional style rules -->
+    <link rel="stylesheet" href="../main.css">
+    <!-- Fetch the code for the libraries we need -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <!-- My own code -->
+    <script src="../main.js"></script>
+    <script src="../js/local.js"></script>
+    <title>Assignment 1</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="../index.html">Assignment 1</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="local.html">Local data</a>
+                <a class="nav-item nav-link" href="fetched.html">Fetched data</a>
+                <a class="nav-item nav-link" href="localko.html">KO - Local data</a>
+                <a class="nav-item nav-link" href="fetchedko.html">KO - Fetched data</a>
+            </div>
+        </div>
+    </nav>
+
+   
+    <main role="main" class="container">
+        <!-- Data for the displaying the specific customer -->
+        <div class="position-fixed container">
+            <div class="col-md-3.5 offset-md-9" id="data-details">
+                <div class="card">
+                    <div class="card-header">Customer details</div>
+                        <div class="card-body">
+                            <h2 class="card-title"></h2><hr>
+                            <h6 class="card-subtitle">Birth date</h6>
+                            <h5 class="card-text" id="birth-date"></h5>
+                            <h5 class="card-text" id="age"></h5><hr>
+                            <h6 class="card-subtitle">City</h6>
+                            <h5 class="card-text" id="city"></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Data for the List of customers -->
+        <div class="row">
+            <div class="col-md-9">
+                <p>
+                    Work with jQuery, Moment, and Lodash, using local data
+                </p>
+                <div class="card">
+                    <div class="card-header">Customer List</div>
+                        <div class="card-body">
+                           <table class="table table-sm table-hover" id="data">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Birth date</th>
+                                        <th>Addresses</th>
+                                        <th>Credits</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2018 Kevin Chan. This is my own work, and I have practiced academic honesty.</p>
+    </footer>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<br><br><br>
+<div class="row">
+  <h1>Edit team</h1>
+  <h4>Enter information, and click the create button</h4>
+  <div class='col-md-8 col-sm-12'>
+    <form (ngSubmit)='onSubmit()' #f='ngForm'>
+      <!-- Team Name -->
+      <div class="form-group">
+        <label class="control-label" for="name">Team Name:</label>
+        <input class="form-control" id="name" name="name" required autofocus [(ngModel)]='dataTeam.TeamName' placeholder="3 to 50 characters" ng-minlength="3">
+      </div>
+    
+
+       <!-- Team Leader -->
+      <div class="form-group">
+        <label for="teamLead">Team Leader</label>
+        <select class="form-control"name="teamLead" required [(ngModel)]="teamLead">
+            <option *ngFor = "let t of employees" [value]="t">
+              {{t.FirstName}} {{t.LastName}}
+            </option>
+        </select>
+      </div>
+
+       <!-- Team Members -->
+      <div class="form-group">
+        <label for="selectedMembers">Team Members</label>
+        <select multiple class="form-control" name="selectedMembers" required [(ngModel)]="selectedMembers">
+           <!--  
+          <option *ngIf='employees.invalid && employees.pristine' value='' disabled>Select one or more team members...</option>
+           -->  
+          <option *ngFor = "let e of employees" [ngValue]="e">
+              {{e.FirstName}} {{e.LastName}} - {{e.Position.PositionName}}
+            </option>
+        </select>  
+      </div>
+
+       <!-- Projects -->
+      <div class="form-group">
+        <label for="projects">Projects</label>
+        <select multiple class="form-control" name="projects" required [(ngModel)]="selectedProjects">
+          <!--  
+          <option *ngIf='projects.invalid && projects.pristine' value='' disabled>Select one or more projects...</option>
+          -->  
+          <option *ngFor = "let p of projects" [value]="p">
+              {{p.ProjectName}}
+            </option>
+  
+        </select>
+      </div>
+
+      <a class="btn btn-default" routerLink='/teamsList'>Back to list</a>
+      <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Create</button>
+
+    </form>
+  </div>
+  </div>   
+

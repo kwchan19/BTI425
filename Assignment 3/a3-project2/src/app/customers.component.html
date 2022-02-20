@@ -1,0 +1,29 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <h1>
+        Customers
+      </h1>
+
+  
+          <table class="table table-hover" id="data">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of customers">
+                <td>{{i.first_name}}</td>
+                <td>{{i.last_name}} </td>
+                <td>{{i.city}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+  </div>
+</main>

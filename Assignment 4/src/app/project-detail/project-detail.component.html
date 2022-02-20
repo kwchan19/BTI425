@@ -1,0 +1,15 @@
+<div class="row">
+  <br>
+  <br>
+  <h1>Project detail - {{ proj.ProjectName }}</h1>
+  <p>View and edit this project</p>
+  <dl class="dl-horizontal">
+    <dt>Project Name</dt>
+    <dd>{{ proj.ProjectName }}</dd>
+    <dt>Description</dt>
+    <dd>{{ proj.ProjectDescription }}</dd>
+    <dt>Start Date</dt>
+    <dd>{{ proj.ProjectStartDate | date:'EEEE, LLLL dd, yyyy' }}</dd>
+  </dl>
+  <button class="btn btn-default" (click)='this.router.navigate(["/projloyees"])'>Back</button>
+</div>

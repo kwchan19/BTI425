@@ -1,0 +1,76 @@
+<div class="row">
+  <h1>Edit team {{ team.TeamName }}</h1>
+  <h4>Enter information, and click the update button</h4>
+  <div class='col-md-8 col-sm-12'>
+
+    <form (ngSubmit)='onSubmit()' #f='ngForm'>
+
+      <div class="form-group">
+        <label class="control-label" for="name">Team Name:</label>
+        <input class="form-control" [(ngModel)]='team.TeamName' id="name" name="name" #name='ngModel' required pattern='.{3,}' maxlength="50"
+          autofocus placeholder="3 to 50 characters">
+        <div *ngIf='name.invalid && (name.dirty || name.touched)' class='alert alert-danger'>
+          <div *ngIf='name.errors.required'>Team Name is required, 3 to 50 characters</div>
+          <div *ngIf='name.errors.pattern'>Team Name must be at least 3 characters</div>
+        </div>
+        <!-- <div>{{ team.TeamName }}</div> -->
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="teamLead">Team Leader:</label>
+        <select name="teamLead" id="teamLead" #teamLead='ngModel' class="form-control" [(ngModel)]='selectedEmployee' required>
+          <option *ngIf='teamLead.invalid && teamLead.pristine' value='' disabled>Select a team leader...</option>
+          <option *ngFor='let e of employees' [value]="e._id">{{ e.LastName }}, {{ e.FirstName }}</option>
+          <!-- [selected]='isTeamLeadSelected(e._id)' -->
+        </select>
+        <div *ngIf='teamLead.invalid && teamLead.touched' class='alert alert-danger'>
+          <div *ngIf='teamLead.errors.required'>Must select a team leader</div>
+        </div>
+        <!-- <div>{{ selectedEmployee }}</div> -->
+      </div>
+
+      <!-- This works OK -->
+      <div class="form-group">
+        <label class="control-label" for="teamMembers">Team Members:</label>
+        <select name="teamMembers" id="teamMembers" #teamMembers='ngModel' class="form-control" [(ngModel)]='selectedEmployees' multiple
+          size="8" required>
+          <option *ngIf='teamMembers.invalid && teamMembers.pristine' value='' disabled>Select one or more team members...</option>
+          <!-- The ? suppresses error messages -->
+          <option *ngFor='let e of employees' [value]="e._id">{{ e.LastName }}, {{ e.FirstName }} - {{ e.Position?.PositionName }}</option>
+        </select>
+        <div *ngIf='teamMembers.invalid && teamMembers.touched' class='alert alert-danger'>
+          <div *ngIf='teamMembers.errors.required'>Must select one or more team members</div>
+        </div>
+        <!-- <div>
+          <span *ngFor='let e of selectedEmployees'>{{ e }}
+            <br>
+          </span>
+        </div> -->
+      </div>
+
+      <!-- This works OK -->
+      <div class="form-group">
+        <label class="control-label" for="teamProjects">Projects:</label>
+        <select name="teamProjects" id="teamProjects" #teamProjects='ngModel' class="form-control" [(ngModel)]='selectedProjects'
+          multiple size="5" required>
+          <option *ngIf='teamProjects.invalid && teamProjects.pristine' value='' disabled>Select one or more projects...</option>
+          <option *ngFor='let p of projects' [value]="p._id">{{ p.ProjectName }} - {{ p.ProjectDescription.substring(0,50) }}...</option>
+        </select>
+        <div *ngIf='teamProjects.invalid && teamProjects.touched' class='alert alert-danger'>
+          <div *ngIf='teamProjects.errors.required'>Must select one or more projects</div>
+        </div>
+        <!-- <div>
+          <span *ngFor='let p of selectedProjects'>{{ p }}
+            <br>
+          </span>
+        </div> -->
+      </div>
+
+      <a class="btn btn-default" routerLink='/teams'>Back to list</a>
+      <a class="btn btn-default" routerLink='/team/detail/{{ team._id }}'>Back to details</a>
+      <button class="btn btn-primary" type="submit" [disabled]='!f.form.valid'>Update</button>
+    </form>
+
+    <!-- <p>Team edit message: {{ teamEditMessage }}</p> -->
+  </div>
+</div>
